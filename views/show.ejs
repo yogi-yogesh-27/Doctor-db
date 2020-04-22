@@ -1,0 +1,32 @@
+<% include partials/header %>
+
+<br><br>
+   <div class="ui main text container">
+   	<div class="ui huge header">List of specialist</div>
+    <div class="ui top attached segment">
+<div class="ui divided items">
+  <% Info.forEach(function(info){ %>
+	 <div class="item">
+	    <div class="image">
+	      <img src="<%= info.docimage %>">
+		  </div>
+		
+	    <div class="content">
+	      <a class="header"><%= info.DocName %></a>
+	      <div class="description">
+			<p><%= info.address.substring(0,15); %>...</p>
+	      </div>
+	      <div class="extra">
+	        <a href="/Doctors/details/<%=info._id %>" class="ui floated basic teal button">
+	          Read More
+	          <i class="right chevron icon"></i>
+	        </a>
+	      </div>
+	    </div>
+	  </div>
+	<% }); %>
+</div>
+</div>
+    
+  </div>
+<% include partials/footer %>

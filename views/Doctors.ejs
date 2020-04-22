@@ -1,0 +1,26 @@
+<% include partials/header.ejs %>
+<br>
+
+<div class="container">
+	<header class="jumbotron">
+		<div class="container">
+		<h1>Choose the best doctor for you...<i class="stethoscope icon"></i></h1>
+		</div>
+	</header>
+	<div class="row" style="display:flex; flex-wrap:wrap;">
+	<% doctors.forEach(function(doctors){ %>
+		<div class="col-6 col-md-3">
+			<div class="img-thumbnail rounded mx-auto d-block" style="margin-bottom:10px;">
+			<img src="<%= doctors.image %> " height="170px" width="100%">	
+				<div class="caption">
+					<a href="./Doctors/<%= doctors.name%>"><strong><%= doctors.name %>	<br></strong></a>
+				<%= doctors.description %>
+				</div>
+			</div>
+		</div>	
+<% }) %>	
+	</div>
+</div>
+
+
+<% include partials/footer.ejs %>

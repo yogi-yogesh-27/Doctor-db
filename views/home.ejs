@@ -1,0 +1,102 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.css">
+<style>
+.jumbotron { 
+	margin:17%;
+	margin-top:2%;
+	margin-bottom:2%;
+	border-radius:3px;
+    background-color: #232323;
+    width:66%;
+	height:200px;
+	color:white;
+	padding:15px;;
+}
+	body{
+		background-image: url("https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/SAKGwKC/medical-background-with-loop_4p1uvboye__F0008.png")
+	}
+
+</style>
+	
+</head>
+<body>
+	
+	
+<div class="ui inverted menu" style="padding:10px;border-radius:0px;">
+			<div class="header item"><span class="spacing">Medico </span><i class="heartbeat icon"></i></div>
+			<a href="/" class="teal item "><span class="spacing">Home</span> <i class="home icon"></i></a>
+			<a href="/Doctors" class="teal item"><span class="spacing">Doctors</span><i class="user md icon"></i></a>
+      <a href="/Consult" class="teal item"><span class="spacing">Consult</span> <i class="wechat icon"></i></a>
+			<a href="/Contact" class="teal item"><span class="spacing">Contact us</span><i class="phone icon"></i></a>
+
+			<div class="right menu">
+					<% if(!currentUser){ %>
+					<a href="/register"><button class="ui inverted button"><span class="spacing">Sign in</span><i class="user circle outline icon"></i></button></a>
+					<a href="/login" ><button class="ui inverted button"><span class="spacing">Log in</span><i class="sign in alternate icon"></i></button></a>
+					<% }else{ %>
+            <a href="/profile"><button class="ui inverted button"><%= currentUser.username %><span class="spacing"></span><i class="user circle icon"></i> </button></a>	
+            <a href="/logout" ><button class="ui inverted button"><span class="spacing">Log out</span><i class="sign out alternate icon"></i></button></a>
+					<% } %>
+			</div>
+		  </div>
+<br><br><br><br>
+<div class="container">
+	<header class="jumbotron">
+		<div class="container">
+		<h1>Consult the specialist Doctors</h1><br><br>
+			<p>
+        Don't know who to consult go to the consult page
+        <br>And see the specialist Doctors
+			</p>
+		</div>
+	</header>
+	
+</div>
+
+<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+<a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(3)"></span> 
+</div>
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>
+
+
+
+<% include partials/footer.ejs %>

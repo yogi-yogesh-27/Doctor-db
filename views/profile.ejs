@@ -1,0 +1,56 @@
+<% include partials/header %>
+<style>
+.container{
+    padding:5%;
+}
+.container .img{
+    text-align:center;
+}
+.container .details{
+    border-left:3px solid #ded4da;
+}
+.container .details p{
+    font-size:15px;
+    font-weight:bold;
+}
+</style>
+<br><br><br><br>
+
+
+<div class="ui text container segment" style="width:70%">
+	<div class="ui huge header"></div>
+	<div class="ui top attached ">
+		<div class="container">
+				<div class="row">
+				  <div class="col-md-6 img">
+					<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRESV_G9_CCJnxVhBDpXaulZF2mgS45SjtdYd2iTaZvsYPH-Wbv" alt="" class="img-rounded">
+				  </div>
+				  <div class="col-md-6 details">
+						<% detail.forEach(function(detail){ %>
+						  Name&emsp;&emsp;&nbsp;&emsp;&emsp;:<%= detail.username %><br><br>
+						  Gender&emsp;&emsp;&nbsp;&nbsp;&nbsp;&emsp;:<%= detail.gender %><br><br>
+						  Age&emsp;&emsp;&emsp;&emsp;&emsp;:<%= detail.age %><br><br>
+						  Phone number&nbsp;:<%= detail.phone %><br><br>
+						  email id :<%= detail.email %><br><br>
+						  
+					</p>
+				  </div>
+				</div>
+			  </div>
+		<a href="/profile/edit/<%= detail._id %>">
+		<% }) %>	
+		<div class="field">
+			<button class="ui violet basic button">
+				Edit
+			</button>
+		</div>
+		</a><br>
+	
+		
+<a href="/">Back to Home</a>
+
+	</div>
+</div>
+
+
+<% include partials/footer.ejs %>

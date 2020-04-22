@@ -1,0 +1,71 @@
+<% include partials/header.ejs %>
+<style>
+.container{
+    text-align:center;
+}
+#text{
+	font-size: 30px;
+	font-weight:1px;
+}
+#star{
+	color:yellow;
+}
+</style>
+<br>
+<div class="ui text container segment">
+	<div class="ui huge header container"><strong><%= detail.specialist %><br>
+	<%= detail.DocName %></strong><br>
+	<div class="ui top attached ">
+		<div class="item">
+			<img class="ui centered rounded image" src="<%= detail.docimage %>" style="border:2px solid#232323">
+		</div>
+			<br>
+			<div class="content">
+			<div class="description" style="font-size: 20px;">
+			<p>Address:
+			<%= detail.address%></p>
+			<p>Phone:
+			<%= detail.phone %>	</p>
+		</div>
+	</div>
+</div>
+</div>
+	<a href="/Doctors/<%=detail.specialist %>">Back to Doctors list</a>
+
+
+</div>
+<div class="ui text container segment" style="margin-bottom:35px; text-align: left">	
+		<div style="text-align:right">
+		<p>
+			<a href="/Doctors/details/<%=detail._id %>/comment/new">
+				<button class="ui green button">create comment</button>
+			</a>
+		</p> 
+	</div>
+			<%var sum=0,n=0 %>
+			<% detail.comment.forEach(function(comment){ %>
+				<h4><p>
+					<% n=n+1 %>
+				</comment.rate><span id="text"><%= comment.author %></span>
+				
+				<% for(var i=0;i< (comment.rate);i++){ %>
+					<span id="star">★</span>
+					<% sum=sum+1 %> 
+				<% } %>
+				<br>	<%=comment.text%>
+					
+				</p></h4>
+				 
+			<% })	%>
+			<br><br>
+			<% if(sum>0){ %>
+			Average rating:
+			<% for(var i=0;i<(sum/n);i++){ %>
+				<span id="star">★</span>
+				<% sum=sum+1 %> 
+			<% }} %>
+			</div>	
+				
+			
+
+<% include partials/footer.ejs %>

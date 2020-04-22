@@ -1,0 +1,345 @@
+<% include partials/header.ejs %>
+<head>
+<script src="https://static.codepen.io/assets/editor/live/console_runner-1df7d3399bdc1f40995a35209755dcfd8c7547da127f6469fd81e5fba982f6af.js"></script>
+<script src="https://static.codepen.io/assets/editor/live/css_reload-5619dc0905a68b2e6298901de54f73cefe4e079f65a75406858d92924b4938bf.js"></script>
+<meta charset='UTF-8'>
+<meta name="robots" content="noindex">
+<link rel="shortcut icon" type="image/x-icon" href="https://static.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
+<link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111" />
+<link rel="canonical" href="https://codepen.io/danbrady/pen/VrjGEW" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.css">
+<style class="cp-pen-styles">
+
+body{
+  background-image:url("https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/SAKGwKC/medical-background-with-loop_4p1uvboye__F0008.png");
+  background-attachment: fixed;
+}
+
+.ui.dropdown {
+  max-width: 800px;
+}
+
+@media only screen and (max-width: 767px) {
+    .ui.selection.dropdown .menu {
+/*      max-height: 8.01428571rem; /* + 1.335714285 to 9.349999995rem */
+/*      max-height: 9.349999995rem; /* Adds a half */
+        max-height: 16.02857142rem; /* Double size */
+    }
+}
+@media only screen and (min-width: 768px) {
+    .ui.selection.dropdown .menu {
+/*         max-height: 10.68571429rem; /* + 1.3357142863 to 12.0214285763rem */
+      max-height: 12.0214285763rem;
+    }
+}
+@media only screen and (min-width: 992px) {
+    .ui.selection.dropdown .menu {
+      max-height: 16.02857143rem; /* + 1.3357142858 to 17.3642857158rem */
+    }
+}
+@media only screen and (min-width: 1920px) {
+    .ui.selection.dropdown .menu {
+        max-height: 21.37142857rem; /* + 1.3357142856 to 22.7071428556rem */
+    }
+}
+#droptitle{
+    font-size:30px;
+    margin-bottom:100px;
+}
+        </style>
+</head>
+<body>
+<div class="ui form " style="margin-left:350px;margin-top:100px;">
+<div class="inline field">
+<span id="droptitle">Select Symptoms</span><br><br>
+<select id="multiselect" name="skills" multiple="" class="label ui selection fluid dropdown">
+<option value="">Select items</option>
+<option value="33">don't know the symptoms</option>
+<option value="1">lost balance</option>
+<option value="2">pain at your desk</option>
+<option value="3">constant pain </option>
+<option value="4">urinate uncontrollably</option>
+<option value="5">allergy</option>
+<option value="6">heartburn</option>
+<option value="7">reduce weight</option>
+<option value="8">too thin</option>
+<option value="9">bleeding between periods</option>
+<option value="10">abnormal vaginal bleeding</option>
+<option value="11">pain in pelvis</option>
+<option value="12">Injury in the ear, nose or throat.</option>
+<option value="13">Dizziness</option>
+<option value="14">Balance problems</option>
+<option value="15">Ear infection</option>
+<option value="16">Swimmer's ear</option>
+<option value="22">Shoulder Pain</option>
+<option value="23">Pain from Repetitive Motions</option>
+<option value="24">Painful Joints</option>
+<option value="25">Twisted Ankles</option>
+<option value="26">Swollen Wrist</option>
+<option value="27">New baby well check</option>
+<option value="28">Annual physical exams</option>
+<option value="29">Immunizations</option>
+<option value="30">Behavioral issues</option>
+<option value="31">Nutritional advice</option>
+<option value="32">perform surgery</option>
+</select>
+</div>
+<button onclick="click1()" class="ui button">submit</button><br><br>
+</div>
+<div class="ui main text container" id="dabba">
+        <div class="ui huge header" id="topic" style="display: none;">Doctors to consult</div><br><br>
+          <div class="ui top attached segment" id="cont" style="display:none">
+      <div class="ui divided items">
+      <div class="item" id="physio" style="display:none;">
+        <div class="image">
+        <img src="https://www.thephysioco.com.au/wp-content/uploads/2018/06/bigstock-Portrait-Of-Physiotherapist-Do-238971859-1024x684-800x534.jpg">
+        </div>
+        <div class="content">
+          <div class="extra">
+            <a href="/Doctors/Physiotherapist" class="ui floated basic teal button">
+              physiotheraphist
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="item" id="nutri" style="display:none;">
+        <div class="image">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPvl3bJIZFtm6IYmSc4_uDUKV9dbp9mpuUi0v990gGUR8wEeAR">
+        </div>
+        <div class="content">
+            <div class="extra">
+              <a href="/Doctors/Nutritionist" class="ui floated basic teal button">
+                nutritionist
+              </a>
+            </div>
+          </div>
+      </div>
+      
+      <div class="item" id="gyneco" style="display:none;">
+        <div class="image">
+        <img src="https://www.finddoctor24.com/wp-content/uploads/2018/01/Gynecology-Doctors.png">
+        </div>
+        <div class="content">
+            <div class="extra">
+              <a href="/Doctors/Gynecologist" class="ui floated basic teal button">
+                Gynecologist
+              </a>
+            </div>
+          </div>
+      </div>
+      
+      <div class="item" id="ent" style="display:none;">
+          <div class="image">
+          <img src="https://www.finddoctor24.com/wp-content/uploads/2018/01/Gynecology-Doctors.png">
+          </div>
+          <div class="content">
+              <div class="extra">
+                <a href="/Doctors/Ent" class="ui floated basic teal button">
+                  Gynecologist
+                </a>
+              </div>
+            </div>
+        </div>
+       
+      <div class="item" id="ortho" style="display:none;">
+          <div class="image">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQU3Koq9e4vuL7BRC6zZPVVmBJmPeT0FWl8swcAcOaYqq5Bss-u">
+          </div>
+          <div class="content">
+              <div class="extra">
+                <a href="/Doctors/Orthopedist" class="ui floated basic teal button">
+                  orthopedist
+                </a>
+              </div>
+            </div>
+        </div>
+        
+      
+        <div class="item" id="pedia" style="display:none;">
+            <div class="image">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTI9u2A57igKkDrul3fT9K_B0gPCKgBQoXbPaFUExcfDRDCgaCP-A">
+            </div>
+            <div class="content">
+                <div class="extra">
+                  <a href="/Doctors/Pediatrician" class="ui floated basic teal button">
+                    pediatrician
+                  </a>
+                </div>
+              </div>
+          </div>
+       
+      <div class="item" id="surgeon" style="display:none;">
+          <div class="image">
+          <img src="https://images.unsplash.com/photo-1551190822-a9333d879b1f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60">
+          </div>
+          <div class="content">
+              <div class="extra">
+                <a href="/Doctors/General surgeon" class="ui floated basic teal button">
+                  General surgeon
+                </a>
+              </div>
+            </div>
+        </div>
+      
+        <div class="item" id="physician" style="display:none;">
+            <div class="image">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2Bdfui-aGfhBbLlGfc-972JmuQiT4qLC-zWndj1x3RGI-mj9Ypw">
+            </div>
+            <div class="content">
+                <div class="extra">
+                  <a href="/Doctors/General physician" class="ui floated basic teal button">
+                    General physician
+                  </a>
+                </div>
+              </div>
+          </div>
+          
+      </div>
+      </div>
+      </div>
+      </div>
+<br><br>
+<script src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-de7e2ef6bfefd24b79a3f68b414b87b8db5b08439cac3f1012092b2290c719cd.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.min.js'></script>
+<script type="text/javascript">
+
+  function click1(){
+    var selectedVal = $("#multiselect").val();
+    arr=[0,0,0,0,0,0,0,0,0]
+    for(var i=0;i<selectedVal.length;i++)
+    {
+        if(selectedVal[i]>=1 && selectedVal[i]<=4){
+        arr[0]=arr[0]+1  //physio
+
+      }
+      if(selectedVal[i]>=5 && selectedVal[i]<=8){
+        arr[1]=arr[1]+1 //nutrition
+      }
+      if(selectedVal[i]>=9 && selectedVal[i]<=11){
+        arr[2]=arr[2]+1  //gyneco
+      }
+      if(selectedVal[i]>=12 && selectedVal[i]<=16){
+        arr[3]=arr[3]+1 //ent
+      }
+      if(selectedVal[i]>=17 && selectedVal[i]<=21){
+        arr[4]=arr[4]+1  //gastro
+      }
+      if(selectedVal[i]>=22 && selectedVal[i]<=26){
+        arr[5]=arr[5]+1  //ortho
+      }
+      if(selectedVal[i]>=27 && selectedVal[i]<=31){
+        arr[6]=arr[6]+1 //pedia
+      }
+      if(selectedVal[i]==32){
+        arr[7]=arr[7]+1  //surgeon
+      }
+      if(selectedVal[i]==33 || selectedVal.length>5){
+        arr[8]=arr[8]+1
+      }
+    }
+    if(selectedVal.length<5){
+      document.getElementById("topic").style.display="inline";
+      document.getElementById("cont").style.display="inline";
+      document.getElementById("dabba").style.backgroundColor="white";
+      document.getElementById("cont").style.backgroundColor="transparent";
+      document.getElementById("cont").style.border="0px"
+    if(arr[0]>0){
+      console.log("physio")
+      document.getElementById("physio").style.display="inline";
+    }else{
+      document.getElementById("physio").style.display="none";
+    }
+    if(arr[1]>0){
+      console.log("nutritionist")
+      document.getElementById("nutri").style.display="inline"
+    }else{
+      document.getElementById("nutri").style.display="none";
+    }
+    if(arr[2]>0){
+      console.log("gynecologist")
+      document.getElementById("gyneco").style.display="inline"
+    }else{
+      document.getElementById("gyneco").style.display="none";
+    }
+    if(arr[3]>0){
+      console.log("Ent")
+      document.getElementById("ent").style.display="inline"
+    }else{
+      document.getElementById("ent").style.display="none";
+    }
+    if(arr[4]>0){
+      console.log("gastro")
+      document.getElementById("gastro").style.display="inline"
+    }else{
+      document.getElementById("gastro").style.display="none";
+    }
+    if(arr[5]>0){
+      console.log("ortho")
+      document.getElementById("ortho").style.display="inline"
+    }else{
+      document.getElementById("ortho").style.display="none";
+    }
+    if(arr[6]>0){
+      console.log("pediatrition")
+      document.getElementById("pedia").style.display="inline"
+    }else{
+      document.getElementById("pedia").style.display="none";
+    }
+    if(arr[7]>0){
+      console.log("Surgeon")
+      document.getElementById("surgeon").style.display="inline"
+    }else{
+      document.getElementById("surgeon").style.display="none";
+    }
+    if(arr[8]>0){
+      console.log("General physician")
+      document.getElementById("physician").style.display="inline"
+    }else{
+      document.getElementById("physician").style.display="none";
+    }
+    }else{
+      
+      document.getElementById("topic").style.display="inline";
+      document.getElementById("cont").style.display="inline";
+      document.getElementById("dabba").style.backgroundColor="white";
+      document.getElementById("cont").style.backgroundColor="transparent";
+      document.getElementById("cont").style.border="0px"
+
+    if(arr[8]>0){
+      console.log("General physician") 
+      document.getElementById("physio").style.display="none"
+      document.getElementById("gyneco").style.display="none";
+      document.getElementById("nutri").style.display="none";
+      document.getElementById("ent").style.display="none";
+      document.getElementById("ortho").style.display="none";
+      document.getElementById("surgeon").style.display="none";
+      document.getElementById("gastro").style.display="none";
+      document.getElementById("pedia").style.display="none";
+      document.getElementById("physician").style.display="inline";
+    }else{
+      document.getElementById("physician").style.display="none";
+    }
+    }
+ }
+</script>
+<script src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-de7e2ef6bfefd24b79a3f68b414b87b8db5b08439cac3f1012092b2290c719cd.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.js"></script>
+<script id="rendered-js">
+          $('.label.ui.dropdown').
+dropdown();
+
+$('.no.label.ui.dropdown').
+dropdown({
+  useLabels: false });
+
+
+$('.ui.button').on('click', function () {
+  $('.ui.dropdown').
+  dropdown('restore defaults');
+});
+        </script>
+</body>
+</html>

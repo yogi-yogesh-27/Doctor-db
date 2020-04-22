@@ -1,0 +1,45 @@
+<% include partials/header %>
+<style>
+.container{
+    text-align:center;
+}
+</style>
+<br><br><br><br>
+<% detail.forEach(function(detail){ %>
+<div class="ui main text container segment" width="350px">
+	<div class="ui huge header"></div>
+	<form  action="/profile?_method=PUT" method="POST" class="ui form" style="width:0.5em;">
+	<div class="field">
+    	Name:
+		<input type="text" name="detail[name]"  value="<%= detail.name %>" style="width:350px" >
+  	</div>
+  	<div class="field">
+    	Email:
+		<input type="text" name="detail[email]"  value="<%= detail.email %>" style="width:350px">
+  	</div>
+	<div class="field">
+    	PhoneNumber:
+		<input type="text" name="detail[phone]" value="<%= detail.phone %>" style="width:350px">
+	</div>
+	<div class="field">
+			Age:
+			<input type="text" name="detail[age]" value="<%= detail.age %>" style="width:350px">
+	</div>  
+	<div class="field">
+		Gender:
+		<select name="detail[gender]" value="Select" style="width:350px">
+			<option value="Male">Male</option>
+			<option value="Female">Female</option>
+			<option value="others">others</option>
+		</select>
+	</div>
+	<div class="field">
+		<input class="ui violet basic button" type="submit">
+	</div>
+	</form>
+</div>
+<% }) %>
+<% include partials/footer %>
+<a href="/home">Back to Home</a>
+
+<% include partials/footer.ejs %>

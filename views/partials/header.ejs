@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>Medico</title>	
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.css">
+	<link rel="stylesheet" type="text/css" href="/app.css">
+	<style>
+	.spacing{
+		padding-right:5px;
+	}
+
+	body{
+		background-image: url("https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/SAKGwKC/medical-background-with-loop_4p1uvboye__F0008.png")
+	}
+	</style>
+	</head>
+	<body>
+		<div class="ui inverted menu" style="padding:10px;border-radius:0px;">
+			<div class="header item"><span class="spacing">Medico </span><i class="heartbeat icon"></i></div>
+			<a href="/" class="teal item "><span class="spacing">Home</span> <i class="home icon"></i></a>
+			<a href="/Doctors" class="teal item"><span class="spacing">Doctors</span><i class="user md icon"></i></a>
+			<a href="/Consult" class="teal item"><span class="spacing">Consult</span> <i class="wechat icon"></i></a>
+			<a href="/Contact" class="teal item"><span class="spacing">Contact us</span><i class="phone icon"></i></a>
+			<link rel="stylesheet" href="netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css">
+			<div class="right menu">
+					<% if(!currentUser){ %>
+					<a href="/register"><button class="ui inverted button"><span class="spacing">Sign in</span><i class="user circle outline icon"></i></button></a>
+					<a href="/login" ><button class="ui inverted button"><span class="spacing">Log in</span><i class="sign in alternate icon"></i></button></a>
+					<% }else{ %>
+					<a href="/profile"><button class="ui inverted button"><%= currentUser.username %><span class="spacing"></span><i class="user circle icon"></i> </button></a>	
+					<a href="/logout" ><button class="ui inverted button"><span class="spacing">Log out</span><i class="sign out alternate icon"></i></button></a>
+					<% } %>
+			</div>
+		  </div>
+		
